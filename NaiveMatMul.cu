@@ -12,7 +12,7 @@
 
 #define CEIL_DIV(x, y) (((x) + (y) - 1) / (y))
 
-__global__ void naive_kernel(int M, int N, int K, float alpha, float *A, float *B, float beta, float *C) {
+__global__ void naive_matmul_kernel(int M, int N, int K, float alpha, float *A, float *B, float beta, float *C) {
     int BLOCKSIZE = 32;
 
     const int row = blockIdx.x * blockDim.x + (threadIdx.x / BLOCKSIZE);
